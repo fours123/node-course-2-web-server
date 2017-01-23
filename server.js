@@ -2,6 +2,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs=require('fs');
 
+const port = process.env.PORT || 3000;
+// if PORT from env is not available (run env command from terminal), use default port 3000..
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -73,7 +76,8 @@ app.get('/bad', (req,res) => {
   })
 })
 // bind to a port ?? common port is 3000
-app.listen(3000, () => {
-  console.log('server is up on port 3000');
+// app.listen(3000, () => {
+app.listen(port, () => {
+  console.log(`server is up on port ${port}`);
   // the second option for listen is optional.. this msg prints on terminal..
 });
